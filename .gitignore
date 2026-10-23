@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+saida_vf/
+*.parcial.mp3
+*_local.wav
