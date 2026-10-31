@@ -1,124 +1,213 @@
-"""Juh Quiz — 15 novos temas com caricaturas e fundo.
-O gerador acrescenta as quatro hashtags de cada tema à legenda exportada.
-"""
-
-PERGUNTAS = [{'tema': 'Flamingos',
-  'pergunta': 'A alimentação influencia a cor rosada dos flamingos.',
-  'verdadeiro': True,
-  'explicacao': 'Pigmentos chamados carotenoides, presentes na alimentação, contribuem para a coloração das '
-                'penas dos flamingos.',
-  'imagem': 'imagens_perguntas/01_flamingos.png',
-  'legenda': 'De onde vem o visual desse flamingo? 🦩',
-  'hashtags': ['#Flamingos', '#Animais', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Estrelas-do-mar',
-  'pergunta': 'Algumas estrelas-do-mar conseguem regenerar braços perdidos.',
-  'verdadeiro': True,
-  'explicacao': 'Muitas espécies podem regenerar braços. A capacidade e as condições dessa regeneração '
-                'variam conforme a espécie.',
-  'imagem': 'imagens_perguntas/02_estrelas_do_mar.png',
-  'legenda': 'Essa estrela do mar guarda uma surpresa! ⭐',
-  'hashtags': ['#EstrelaDoMar', '#VidaMarinha', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Mel',
-  'pergunta': 'Quando o mel cristaliza, isso significa que ele estragou.',
-  'verdadeiro': False,
-  'explicacao': 'A cristalização é um processo natural ligado aos açúcares do mel e, por si só, não indica '
-                'que ele esteja estragado.',
-  'imagem': 'imagens_perguntas/03_mel.png',
-  'legenda': 'Será que a aparência do mel conta toda a história? 🍯',
-  'hashtags': ['#Mel', '#Alimentos', '#MitosEVerdades', '#JuhQuiz']},
- {'tema': 'Cebola',
-  'pergunta': 'Cortar cebola pode liberar uma substância que irrita os olhos.',
-  'verdadeiro': True,
-  'explicacao': 'Ao cortar a cebola, suas células são rompidas e reações químicas liberam um composto '
-                'volátil que provoca lacrimejamento.',
-  'imagem': 'imagens_perguntas/04_cebola.png',
-  'legenda': 'O que essa cebola tem de tão especial? 🧅',
-  'hashtags': ['#Cebola', '#CienciaNaCozinha', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Elefantes',
-  'pergunta': 'A tromba do elefante possui ossos em seu interior.',
-  'verdadeiro': False,
-  'explicacao': 'A tromba é uma estrutura muscular flexível, sem ossos, usada para respirar, cheirar e '
-                'manipular objetos.',
-  'imagem': 'imagens_perguntas/05_elefantes.png',
-  'legenda': 'Você conhece os segredos da tromba? 🐘',
-  'hashtags': ['#Elefantes', '#Animais', '#Natureza', '#JuhQuiz']},
- {'tema': 'Espelhos',
-  'pergunta': 'Um espelho plano forma uma imagem com o mesmo tamanho do objeto.',
-  'verdadeiro': True,
-  'explicacao': 'Em um espelho plano ideal, a imagem tem o mesmo tamanho do objeto e parece estar à mesma '
-                'distância atrás do espelho.',
-  'imagem': 'imagens_perguntas/06_espelhos.png',
-  'legenda': 'Será que o espelho muda o tamanho das coisas? 🪞',
-  'hashtags': ['#Espelhos', '#Fisica', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Tartarugas',
-  'pergunta': 'Uma tartaruga pode sair do casco e viver sem ele.',
-  'verdadeiro': False,
-  'explicacao': 'O casco faz parte do esqueleto da tartaruga e está ligado às costelas e à coluna. Ele não é '
-                'uma carapaça que o animal pode abandonar.',
-  'imagem': 'imagens_perguntas/07_tartarugas.png',
-  'legenda': 'O casco é uma casa que dá para trocar? 🐢',
-  'hashtags': ['#Tartarugas', '#Animais', '#MitosEVerdades', '#JuhQuiz']},
- {'tema': 'Balões de hélio',
-  'pergunta': 'O hélio é mais denso que o ar nas mesmas condições de temperatura e pressão.',
-  'verdadeiro': False,
-  'explicacao': 'O hélio é menos denso que o ar. Um balão sobe quando o empuxo supera o peso do conjunto '
-                'formado pelo gás e pelo balão.',
-  'imagem': 'imagens_perguntas/08_baloes_de_helio.png',
-  'legenda': 'O que há por trás da leveza desse balão? 🎈',
-  'hashtags': ['#Helio', '#Fisica', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Girassóis',
-  'pergunta': 'Todos os girassóis adultos acompanham o Sol ao longo do dia.',
-  'verdadeiro': False,
-  'explicacao': 'O acompanhamento do Sol ocorre principalmente durante o crescimento. Quando maduros, os '
-                'girassóis geralmente mantêm as flores voltadas para o leste.',
-  'imagem': 'imagens_perguntas/09_girassois.png',
-  'legenda': 'Esse girassol segue o Sol o tempo todo? 🌻',
-  'hashtags': ['#Girassol', '#Botanica', '#Natureza', '#JuhQuiz']},
- {'tema': 'Sal',
-  'pergunta': 'É possível recuperar o sal dissolvido na água por evaporação.',
-  'verdadeiro': True,
-  'explicacao': 'Quando a água evapora, o sal dissolvido pode permanecer e formar cristais. Esse princípio é '
-                'usado na obtenção de sal em salinas.',
-  'imagem': 'imagens_perguntas/10_sal.png',
-  'legenda': 'O sal dissolvido pode aparecer de novo? 🧂',
-  'hashtags': ['#Sal', '#CienciaNaCozinha', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Crocodilos',
-  'pergunta': 'Os crocodilos podem substituir dentes ao longo da vida.',
-  'verdadeiro': True,
-  'explicacao': 'Os crocodilos têm dentes de reposição que substituem os perdidos ou desgastados, repetindo '
-                'esse processo muitas vezes.',
-  'imagem': 'imagens_perguntas/11_crocodilos.png',
-  'legenda': 'Esse crocodilo tem uma curiosidade para você! 🐊',
-  'hashtags': ['#Crocodilos', '#Animais', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Arrepios',
-  'pergunta': 'O arrepio envolve a contração de pequenos músculos ligados aos pelos.',
-  'verdadeiro': True,
-  'explicacao': 'A contração desses músculos levanta os pelos e deixa a pele arrepiada. Frio e emoções podem '
-                'desencadear essa reação.',
-  'imagem': 'imagens_perguntas/12_arrepios.png',
-  'legenda': 'Por que a pele fica arrepiada? 🥶',
-  'hashtags': ['#Arrepios', '#CorpoHumano', '#Ciencia', '#JuhQuiz']},
- {'tema': 'Aranhas',
-  'pergunta': 'Todas as aranhas usam teias para capturar suas presas.',
-  'verdadeiro': False,
-  'explicacao': 'Algumas aranhas capturam presas caçando ativamente ou por emboscada, em vez de usar teias '
-                'de captura.',
-  'imagem': 'imagens_perguntas/13_aranhas.png',
-  'legenda': 'Toda aranha caça do mesmo jeito? 🕷️',
-  'hashtags': ['#Aranhas', '#Natureza', '#MitosEVerdades', '#JuhQuiz']},
- {'tema': 'Bicicletas',
-  'pergunta': 'Em uma bicicleta com marchas, a relação entre as voltas dos pedais e da roda nunca muda.',
-  'verdadeiro': False,
-  'explicacao': 'A troca de marchas altera essa relação. Isso permite adaptar o esforço ao pedalar em '
-                'subidas ou em trechos de maior velocidade.',
-  'imagem': 'imagens_perguntas/14_bicicletas.png',
-  'legenda': 'O que muda quando você troca a marcha? 🚲',
-  'hashtags': ['#Bicicleta', '#Fisica', '#Curiosidades', '#JuhQuiz']},
- {'tema': 'Cenouras',
-  'pergunta': 'Existem cenouras naturalmente roxas.',
-  'verdadeiro': True,
-  'explicacao': 'As cenouras não são apenas laranjas. Existem variedades roxas, amarelas, brancas e '
-                'vermelhas, entre outras.',
-  'imagem': 'imagens_perguntas/15_cenouras.png',
-  'legenda': 'Será que toda cenoura tem a mesma cor? 🥕',
-  'hashtags': ['#Cenoura', '#Alimentos', '#Curiosidades', '#JuhQuiz']}]
+"""Quiz-19: 7 temas atuais e 8 nostálgicos. Uma afirmação por vídeo."""
+PERGUNTAS = [
+  {
+    "tema": "Virginia em Miami",
+    "pergunta": "O vídeo de Virginia que gerou críticas foi gravado em Miami.",
+    "verdadeiro": True,
+    "explicacao": "A cobertura da semana situou a festa em Miami, nos Estados Unidos.",
+    "imagem": "imagens_perguntas/01_virginia_miami.png",
+    "legenda": "Você acompanhou essa polêmica?",
+    "hashtags": [
+      "#Virginia",
+      "#Famosos",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Virginia e Silvia",
+    "pergunta": "A discussão entre Silvia Abravanel e Virginia ficou restrita à roupa usada na festa.",
+    "verdadeiro": False,
+    "explicacao": "As críticas também atingiram a maternidade de Virginia, e sua equipe divulgou uma resposta.",
+    "imagem": "imagens_perguntas/02_virginia_silvia.png",
+    "legenda": "Até onde foi essa discussão?",
+    "hashtags": [
+      "#Virginia",
+      "#SilviaAbravanel",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Craque Neto e BTS",
+    "pergunta": "Neto pediu desculpas aos fãs do BTS após criticar o grupo.",
+    "verdadeiro": True,
+    "explicacao": "No programa de 30 de outubro, Neto se retratou e disse ter ouvido as músicas do grupo.",
+    "imagem": "imagens_perguntas/03_neto_bts.png",
+    "legenda": "Você viu a reação dos fãs?",
+    "hashtags": [
+      "#BTS",
+      "#CraqueNeto",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Memes políticos",
+    "pergunta": "Uma imagem de político em um meme pode ter sido criada por inteligência artificial.",
+    "verdadeiro": True,
+    "explicacao": "Memes podem usar montagens e IA. A aparência realista não comprova que a cena aconteceu.",
+    "imagem": "imagens_perguntas/04_memes_politicos.png",
+    "legenda": "Você cairia nessa montagem?",
+    "hashtags": [
+      "#Memes",
+      "#Politica",
+      "#Checagem",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Intolerância política",
+    "pergunta": "Reportagens desta semana relataram denúncias de retaliação política no trabalho.",
+    "verdadeiro": True,
+    "explicacao": "A cobertura de 29 e 30 de outubro abordou demissões e uma ordem de reintegração. Denúncia não equivale a julgamento definitivo.",
+    "imagem": "imagens_perguntas/05_convivencia_politica.png",
+    "legenda": "A eleição acabou. E a convivência?",
+    "hashtags": [
+      "#Convivencia",
+      "#Atualidades",
+      "#Respeito",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Pedidos cancelados",
+    "pergunta": "Todo pedido comercial cancelado depois da eleição comprova boicote político.",
+    "verdadeiro": False,
+    "explicacao": "Houve relatos de cancelamentos, mas a data, sozinha, não comprova o motivo de cada decisão comercial.",
+    "imagem": "imagens_perguntas/06_pedidos_cancelados.png",
+    "legenda": "Cancelamento ou boicote: dá para concluir?",
+    "hashtags": [
+      "#Comercio",
+      "#Atualidades",
+      "#Economia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Vídeos virais",
+    "pergunta": "A CNN confirmou que um vídeo de Nikolas era o vídeo sem som mais visto do mundo.",
+    "verdadeiro": False,
+    "explicacao": "O UOL Confere desmentiu a atribuição à CNN. O trecho que circulava havia sido adulterado.",
+    "imagem": "imagens_perguntas/07_video_nikolas.png",
+    "legenda": "Um vídeo viral conta a história toda?",
+    "hashtags": [
+      "#VideosVirais",
+      "#Checagem",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Locadoras e VHS",
+    "pergunta": "As fitas VHS precisavam ser rebobinadas para voltar ao início.",
+    "verdadeiro": True,
+    "explicacao": "A fita magnética era enrolada entre carretéis. Rebobinar fazia a gravação retornar ao começo.",
+    "imagem": "imagens_perguntas/08_locadoras_vhs.png",
+    "legenda": "Quem lembra de devolver a fita?",
+    "hashtags": [
+      "#VHS",
+      "#Locadora",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Orkut e MSN",
+    "pergunta": "Orkut e MSN Messenger eram o mesmo serviço.",
+    "verdadeiro": False,
+    "explicacao": "Orkut era uma rede social com perfis e comunidades. MSN Messenger era um serviço de mensagens instantâneas.",
+    "imagem": "imagens_perguntas/09_orkut_msn.png",
+    "legenda": "Qual deles marcou sua adolescência?",
+    "hashtags": [
+      "#Orkut",
+      "#MSN",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Lan house e internet",
+    "pergunta": "Na conexão discada pela linha telefônica comum, navegar podia deixar o telefone ocupado.",
+    "verdadeiro": True,
+    "explicacao": "A conexão discada usava a linha de voz. Na mesma linha, o uso do telefone podia interromper a internet.",
+    "imagem": "imagens_perguntas/10_lan_house.png",
+    "legenda": "Quem lembra daquele barulho?",
+    "hashtags": [
+      "#LanHouse",
+      "#InternetDiscada",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Walkman e Discman",
+    "pergunta": "O Discman tradicional reproduzia fitas cassete.",
+    "verdadeiro": False,
+    "explicacao": "O Discman era um tocador portátil de CDs. Modelos clássicos de Walkman usavam fitas cassete.",
+    "imagem": "imagens_perguntas/11_walkman_discman.png",
+    "legenda": "Qual desses ia com você para todo lugar?",
+    "hashtags": [
+      "#Walkman",
+      "#Discman",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Bichinhos virtuais",
+    "pergunta": "No Tamagotchi clássico, era preciso cuidar de um bichinho virtual.",
+    "verdadeiro": True,
+    "explicacao": "O brinquedo eletrônico simulava cuidados como alimentação, limpeza e brincadeiras.",
+    "imagem": "imagens_perguntas/12_tamagotchi.png",
+    "legenda": "Você conseguia cuidar do seu?",
+    "hashtags": [
+      "#Tamagotchi",
+      "#Brinquedos",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Figurinhas e tazos",
+    "pergunta": "Tazos e figurinhas eram exatamente o mesmo tipo de objeto.",
+    "verdadeiro": False,
+    "explicacao": "Tazos eram peças rígidas, geralmente em forma de disco. Figurinhas eram impressos colecionáveis, muitas vezes adesivos.",
+    "imagem": "imagens_perguntas/13_tazos_figurinhas.png",
+    "legenda": "Qual era o tesouro do seu recreio?",
+    "hashtags": [
+      "#Tazos",
+      "#Figurinhas",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "TV da infância",
+    "pergunta": "A TV aberta exibia desenhos infantis antes de existir streaming.",
+    "verdadeiro": True,
+    "explicacao": "Por décadas, desenhos integraram a programação da TV aberta, com horários definidos pelas emissoras.",
+    "imagem": "imagens_perguntas/14_tv_infancia.png",
+    "legenda": "Qual programa fazia você correr para a TV?",
+    "hashtags": [
+      "#TVAntiga",
+      "#Desenhos",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Videogames clássicos",
+    "pergunta": "Todos os consoles que usavam cartuchos precisavam de memory card para salvar jogos.",
+    "verdadeiro": False,
+    "explicacao": "Os sistemas variavam: alguns jogos usavam bateria no cartucho, outros senhas, e muitos nem permitiam salvar.",
+    "imagem": "imagens_perguntas/15_videogames.png",
+    "legenda": "Você lembra como salvava sua partida?",
+    "hashtags": [
+      "#Videogame",
+      "#GamesRetro",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  }
+]
