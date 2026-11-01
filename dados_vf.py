@@ -1,213 +1,119 @@
-"""Quiz-19: 7 temas atuais e 8 nostálgicos. Uma afirmação por vídeo."""
-PERGUNTAS = [
-  {
-    "tema": "Virginia em Miami",
-    "pergunta": "O vídeo de Virginia que gerou críticas foi gravado em Miami.",
-    "verdadeiro": True,
-    "explicacao": "A cobertura da semana situou a festa em Miami, nos Estados Unidos.",
-    "imagem": "imagens_perguntas/01_virginia_miami.png",
-    "legenda": "Você acompanhou essa polêmica?",
-    "hashtags": [
-      "#Virginia",
-      "#Famosos",
-      "#Atualidades",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Virginia e Silvia",
-    "pergunta": "A discussão entre Silvia Abravanel e Virginia ficou restrita à roupa usada na festa.",
-    "verdadeiro": False,
-    "explicacao": "As críticas também atingiram a maternidade de Virginia, e sua equipe divulgou uma resposta.",
-    "imagem": "imagens_perguntas/02_virginia_silvia.png",
-    "legenda": "Até onde foi essa discussão?",
-    "hashtags": [
-      "#Virginia",
-      "#SilviaAbravanel",
-      "#Atualidades",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Craque Neto e BTS",
-    "pergunta": "Neto pediu desculpas aos fãs do BTS após criticar o grupo.",
-    "verdadeiro": True,
-    "explicacao": "No programa de 30 de outubro, Neto se retratou e disse ter ouvido as músicas do grupo.",
-    "imagem": "imagens_perguntas/03_neto_bts.png",
-    "legenda": "Você viu a reação dos fãs?",
-    "hashtags": [
-      "#BTS",
-      "#CraqueNeto",
-      "#Atualidades",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Memes políticos",
-    "pergunta": "Uma imagem de político em um meme pode ter sido criada por inteligência artificial.",
-    "verdadeiro": True,
-    "explicacao": "Memes podem usar montagens e IA. A aparência realista não comprova que a cena aconteceu.",
-    "imagem": "imagens_perguntas/04_memes_politicos.png",
-    "legenda": "Você cairia nessa montagem?",
-    "hashtags": [
-      "#Memes",
-      "#Politica",
-      "#Checagem",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Intolerância política",
-    "pergunta": "Reportagens desta semana relataram denúncias de retaliação política no trabalho.",
-    "verdadeiro": True,
-    "explicacao": "A cobertura de 29 e 30 de outubro abordou demissões e uma ordem de reintegração. Denúncia não equivale a julgamento definitivo.",
-    "imagem": "imagens_perguntas/05_convivencia_politica.png",
-    "legenda": "A eleição acabou. E a convivência?",
-    "hashtags": [
-      "#Convivencia",
-      "#Atualidades",
-      "#Respeito",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Pedidos cancelados",
-    "pergunta": "Todo pedido comercial cancelado depois da eleição comprova boicote político.",
-    "verdadeiro": False,
-    "explicacao": "Houve relatos de cancelamentos, mas a data, sozinha, não comprova o motivo de cada decisão comercial.",
-    "imagem": "imagens_perguntas/06_pedidos_cancelados.png",
-    "legenda": "Cancelamento ou boicote: dá para concluir?",
-    "hashtags": [
-      "#Comercio",
-      "#Atualidades",
-      "#Economia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Vídeos virais",
-    "pergunta": "A CNN confirmou que um vídeo de Nikolas era o vídeo sem som mais visto do mundo.",
-    "verdadeiro": False,
-    "explicacao": "O UOL Confere desmentiu a atribuição à CNN. O trecho que circulava havia sido adulterado.",
-    "imagem": "imagens_perguntas/07_video_nikolas.png",
-    "legenda": "Um vídeo viral conta a história toda?",
-    "hashtags": [
-      "#VideosVirais",
-      "#Checagem",
-      "#Atualidades",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Locadoras e VHS",
-    "pergunta": "As fitas VHS precisavam ser rebobinadas para voltar ao início.",
-    "verdadeiro": True,
-    "explicacao": "A fita magnética era enrolada entre carretéis. Rebobinar fazia a gravação retornar ao começo.",
-    "imagem": "imagens_perguntas/08_locadoras_vhs.png",
-    "legenda": "Quem lembra de devolver a fita?",
-    "hashtags": [
-      "#VHS",
-      "#Locadora",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Orkut e MSN",
-    "pergunta": "Orkut e MSN Messenger eram o mesmo serviço.",
-    "verdadeiro": False,
-    "explicacao": "Orkut era uma rede social com perfis e comunidades. MSN Messenger era um serviço de mensagens instantâneas.",
-    "imagem": "imagens_perguntas/09_orkut_msn.png",
-    "legenda": "Qual deles marcou sua adolescência?",
-    "hashtags": [
-      "#Orkut",
-      "#MSN",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Lan house e internet",
-    "pergunta": "Na conexão discada pela linha telefônica comum, navegar podia deixar o telefone ocupado.",
-    "verdadeiro": True,
-    "explicacao": "A conexão discada usava a linha de voz. Na mesma linha, o uso do telefone podia interromper a internet.",
-    "imagem": "imagens_perguntas/10_lan_house.png",
-    "legenda": "Quem lembra daquele barulho?",
-    "hashtags": [
-      "#LanHouse",
-      "#InternetDiscada",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Walkman e Discman",
-    "pergunta": "O Discman tradicional reproduzia fitas cassete.",
-    "verdadeiro": False,
-    "explicacao": "O Discman era um tocador portátil de CDs. Modelos clássicos de Walkman usavam fitas cassete.",
-    "imagem": "imagens_perguntas/11_walkman_discman.png",
-    "legenda": "Qual desses ia com você para todo lugar?",
-    "hashtags": [
-      "#Walkman",
-      "#Discman",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Bichinhos virtuais",
-    "pergunta": "No Tamagotchi clássico, era preciso cuidar de um bichinho virtual.",
-    "verdadeiro": True,
-    "explicacao": "O brinquedo eletrônico simulava cuidados como alimentação, limpeza e brincadeiras.",
-    "imagem": "imagens_perguntas/12_tamagotchi.png",
-    "legenda": "Você conseguia cuidar do seu?",
-    "hashtags": [
-      "#Tamagotchi",
-      "#Brinquedos",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Figurinhas e tazos",
-    "pergunta": "Tazos e figurinhas eram exatamente o mesmo tipo de objeto.",
-    "verdadeiro": False,
-    "explicacao": "Tazos eram peças rígidas, geralmente em forma de disco. Figurinhas eram impressos colecionáveis, muitas vezes adesivos.",
-    "imagem": "imagens_perguntas/13_tazos_figurinhas.png",
-    "legenda": "Qual era o tesouro do seu recreio?",
-    "hashtags": [
-      "#Tazos",
-      "#Figurinhas",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "TV da infância",
-    "pergunta": "A TV aberta exibia desenhos infantis antes de existir streaming.",
-    "verdadeiro": True,
-    "explicacao": "Por décadas, desenhos integraram a programação da TV aberta, com horários definidos pelas emissoras.",
-    "imagem": "imagens_perguntas/14_tv_infancia.png",
-    "legenda": "Qual programa fazia você correr para a TV?",
-    "hashtags": [
-      "#TVAntiga",
-      "#Desenhos",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  },
-  {
-    "tema": "Videogames clássicos",
-    "pergunta": "Todos os consoles que usavam cartuchos precisavam de memory card para salvar jogos.",
-    "verdadeiro": False,
-    "explicacao": "Os sistemas variavam: alguns jogos usavam bateria no cartucho, outros senhas, e muitos nem permitiam salvar.",
-    "imagem": "imagens_perguntas/15_videogames.png",
-    "legenda": "Você lembra como salvava sua partida?",
-    "hashtags": [
-      "#Videogame",
-      "#GamesRetro",
-      "#Nostalgia",
-      "#JuhQuiz"
-    ]
-  }
-]
+"""Quiz-19 — 15 temas de TV e cinema. Uma afirmação por vídeo."""
+
+PERGUNTAS = [{'tema': 'Big Brother Brasil',
+  'pergunta': 'A primeira edição do Big Brother Brasil teve 12 participantes.',
+  'verdadeiro': True,
+  'explicacao': 'O BBB 1, exibido em 2002, começou com 12 participantes.',
+  'imagem': 'imagens_perguntas/01_bbb.jpg',
+  'legenda': 'Você lembra de Big Brother Brasil? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Caldeirão do Huck',
+  'pergunta': 'O Caldeirão do Huck estreou na Globo antes do ano 2000.',
+  'verdadeiro': False,
+  'explicacao': 'O programa estreou em 8 de abril de 2000, nas tardes de sábado.',
+  'imagem': 'imagens_perguntas/02_caldeirao_huck.jpg',
+  'legenda': 'Você lembra de Caldeirão do Huck? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Pequenas Empresas & Grandes Negócios',
+  'pergunta': 'O programa se dedica exclusivamente a empresas multinacionais.',
+  'verdadeiro': False,
+  'explicacao': 'A atração mostra experiências e soluções para pequenos negócios e empreendedores.',
+  'imagem': 'imagens_perguntas/03_pequenas_empresas.jpg',
+  'legenda': 'Você lembra de Pequenas Empresas & Grandes Negócios? Acerte este verdadeiro ou '
+             'falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Mais Você',
+  'pergunta': 'O Mais Você estreou na Globo no período da tarde.',
+  'verdadeiro': True,
+  'explicacao': 'Na estreia, em 18 de outubro de 1999, o programa foi ao ar às 13h40. Depois, '
+                'passou para as manhãs.',
+  'imagem': 'imagens_perguntas/04_mais_voce.jpg',
+  'legenda': 'Você lembra de Mais Você? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Maria do Bairro',
+  'pergunta': 'Maria do Bairro faz parte da trilogia das Marias protagonizada por Thalía.',
+  'verdadeiro': True,
+  'explicacao': 'A trilogia reúne Maria Mercedes, Marimar e Maria do Bairro, três novelas '
+                'protagonizadas por Thalía.',
+  'imagem': 'imagens_perguntas/05_maria_bairro.jpg',
+  'legenda': 'Você lembra de Maria do Bairro? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Roque Santeiro',
+  'pergunta': 'A cidade fictícia de Roque Santeiro se chama Sucupira.',
+  'verdadeiro': False,
+  'explicacao': 'A trama se passa em Asa Branca. Sucupira é a cidade de O Bem-Amado.',
+  'imagem': 'imagens_perguntas/06_roque_santeiro.jpg',
+  'legenda': 'Você lembra de Roque Santeiro? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Globo Rural',
+  'pergunta': 'O programa de televisão Globo Rural surgiu antes da revista de mesmo nome.',
+  'verdadeiro': True,
+  'explicacao': 'O programa estreou em 1980. A revista Globo Rural foi lançada em 1985.',
+  'imagem': 'imagens_perguntas/07_globo_rural.jpg',
+  'legenda': 'Você lembra de Globo Rural? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Globo Esporte',
+  'pergunta': 'O Globo Esporte estreou com a proposta de mostrar somente futebol.',
+  'verdadeiro': False,
+  'explicacao': 'Desde a estreia, em 1978, a proposta incluía diversas modalidades, como vôlei, '
+                'basquete e natação.',
+  'imagem': 'imagens_perguntas/08_globo_esporte.jpg',
+  'legenda': 'Você lembra de Globo Esporte? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'A Megera Domada',
+  'pergunta': 'O filme A Megera Domada, de 1967, foi dirigido por Alfred Hitchcock.',
+  'verdadeiro': False,
+  'explicacao': 'A adaptação com Elizabeth Taylor e Richard Burton foi dirigida por Franco '
+                'Zeffirelli e se baseia na peça de Shakespeare.',
+  'imagem': 'imagens_perguntas/09_megera_domada.jpg',
+  'legenda': 'Você lembra de A Megera Domada? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Malhação',
+  'pergunta': 'A primeira temporada de Malhação tinha uma academia como cenário central.',
+  'verdadeiro': True,
+  'explicacao': 'Em 1995, a academia reunia os personagens e dava origem a amizades, romances e '
+                'conflitos.',
+  'imagem': 'imagens_perguntas/10_malhacao.jpg',
+  'legenda': 'Você lembra de Malhação? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Sítio do Picapau Amarelo',
+  'pergunta': 'A versão do Sítio do Picapau Amarelo que estreou em 2001 foi a primeira da '
+              'televisão.',
+  'verdadeiro': False,
+  'explicacao': 'A obra de Monteiro Lobato já havia ganhado adaptações anteriores, inclusive a '
+                'versão da Globo de 1977.',
+  'imagem': 'imagens_perguntas/11_sitio_picapau.jpg',
+  'legenda': 'Você lembra de Sítio do Picapau Amarelo? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'TV Xuxa',
+  'pergunta': 'O programa TV Xuxa estreou na Globo em 2005.',
+  'verdadeiro': True,
+  'explicacao': 'TV Xuxa estreou em abril de 2005 e passou por mudanças de formato ao longo dos '
+                'anos.',
+  'imagem': 'imagens_perguntas/12_tv_xuxa.jpg',
+  'legenda': 'Você lembra de TV Xuxa? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'A Diarista',
+  'pergunta': 'A Diarista nasceu como um especial de fim de ano antes de virar série semanal.',
+  'verdadeiro': True,
+  'explicacao': 'A história foi exibida como especial em dezembro de 2003 e ganhou uma série '
+                'regular em 2004.',
+  'imagem': 'imagens_perguntas/13_diarista.jpg',
+  'legenda': 'Você lembra de A Diarista? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Domingo Legal',
+  'pergunta': 'O Domingo Legal foi transmitido ao vivo desde sua primeira edição.',
+  'verdadeiro': False,
+  'explicacao': 'O programa estreou gravado em janeiro de 1993. As transmissões ao vivo começaram '
+                'em agosto de 1994.',
+  'imagem': 'imagens_perguntas/14_domingo_legal.jpg',
+  'legenda': 'Você lembra de Domingo Legal? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Avenida Brasil',
+  'pergunta': 'Avenida Brasil foi escrita por Manoel Carlos.',
+  'verdadeiro': False,
+  'explicacao': 'A novela de 2012 foi escrita por João Emanuel Carneiro e acompanha a vingança de '
+                'Nina contra Carminha.',
+  'imagem': 'imagens_perguntas/15_avenida_brasil.jpg',
+  'legenda': 'Você lembra de Avenida Brasil? Acerte este verdadeiro ou falso!',
+  'hashtags': ['#Nostalgia', '#Televisao', '#VerdadeiroOuFalso', '#JuhQuiz']}]
